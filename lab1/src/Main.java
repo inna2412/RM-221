@@ -38,7 +38,7 @@ public class Main {
 
         try {
 
-            Thread.sleep(10);
+            anotherSomeThread.join();
         }
         catch (InterruptedException e){
             e.printStackTrace();
