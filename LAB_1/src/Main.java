@@ -114,11 +114,13 @@ public class Main {
         public DeadlineTask(Thread taskThread, long deadlineMillis) {
             this.taskThread = taskThread;
             this.deadlineMillis = deadlineMillis;
+
         }
 
         @Override
         public void run() {
             try {
+                System.out.println("Имя потока" +Thread.currentThread().getName());
                 Thread.sleep(deadlineMillis);
                 if (taskThread.isAlive()) {                                                               // Проверяем, завершился ли поток конвертации
                     System.out.println("Дедлайн истек. Конвертация не выполнена вовремя.");
