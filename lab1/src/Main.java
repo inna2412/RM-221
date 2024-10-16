@@ -1,53 +1,26 @@
-
-
-
 public class Main {
     public static void main(String[] args) {
 
-        int[] numbers = {10,5,3,6,7,11,30,2,99,1,3};
-        threadOne[] someThreads= new threadOne[2];
-        someThreads[0]= new threadOne();
-        someThreads[1]= new threadOne();
+        CurrencyConverter currencyConverter = new CurrencyConverter();
+        Thread currencyConverterThread = new Thread(currencyConverter);
 
-        System.out.println("numbers array:");
-        for (int number : numbers) {
-            System.out.print(number + " ");
-        }
+        FileProcessor fileProcessorThread = new FileProcessor("C:/Users/nikol/Desktop/Универ/Лабораторные/Третий курс/I-СЕМЕСТР/PCD/Lab№1/Lab№1/lab1/src/input.txt");
 
+        /*currencyConverterThread.setPriority(Thread.MAX_PRIORITY);
+        fileProcessorThread.setPriority(Thread.MIN_PRIORITY);*/
 
-         someThreads[0].setMassive(numbers,0,numbers.length/2);
-         someThreads[1].setMassive(numbers,numbers.length/2,numbers.length);
-
-
-
-
-        threadConnect anotherSomeThread= new threadConnect(someThreads);
-        for (threadOne someThread:someThreads) {
-            someThread.start();
-            try {
-
-                Thread.sleep(10);
-            }
-            catch (InterruptedException e){
-                e.printStackTrace();
-            }
-        }
-        anotherSomeThread.readMassive(numbers);
-        anotherSomeThread.start();
-
+        currencyConverterThread.start();
 
         try {
+            currencyConverterThread.join();
+            System.out.println("Первый поток завершен. Запускаем второй поток.");
 
-            anotherSomeThread.join();
-        }
-        catch (InterruptedException e){
+            fileProcessorThread.start();
+            fileProcessorThread.join();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        numbers=anotherSomeThread.returnMassive();
-        System.out.println("\nnumbers array sorted:");
-        for (int number : numbers) {
-            System.out.print(number + " ");
-        }
 
+        System.out.println("Все операции завершены.");
     }
 }
