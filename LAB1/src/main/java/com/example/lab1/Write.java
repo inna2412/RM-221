@@ -16,11 +16,10 @@ public class Write extends Thread {
 
     public void saveTextToFile() {
         String content = controller.getTextFromTextArea(); // Получаем текст из textArea
-        // Записываем текст в файл
         try (FileWriter writer = new FileWriter("E:\\UTM 4\\workspace\\file.txt", false)) {
             writer.write(content);
         } catch (IOException e) {
-            e.printStackTrace(); // Обработка ошибок
+            e.printStackTrace();
         }
     }
 }

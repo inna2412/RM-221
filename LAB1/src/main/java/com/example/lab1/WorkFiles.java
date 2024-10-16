@@ -7,7 +7,6 @@ public class WorkFiles extends Thread {
 
     private final Controller controller;
 
-    // Конструктор получает контроллер
     WorkFiles(String name, Controller controller) {
         super(name);
         this.controller = controller;

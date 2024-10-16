@@ -9,7 +9,7 @@ public class ReadFile extends Thread {
     private final Controller controller;
 
     public ReadFile(Controller controller) {
-        this.controller = controller;  // Передаем контроллер через конструктор
+        this.controller = controller;
     }
 
     @Override

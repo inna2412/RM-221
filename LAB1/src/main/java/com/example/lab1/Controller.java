@@ -24,7 +24,7 @@ public class Controller {
     }
 
     public void updateTextArea(String content) {
-        Platform.runLater(() -> textArea.appendText(content));  // Обновляем UI в JavaFX Thread
+        Platform.runLater(() -> textArea.appendText(content));
     }
 
     @FXML
@@ -35,7 +35,6 @@ public class Controller {
 
 
     public void updateTextArea2(String content) {
-        // Обновляем UI через Platform.runLater
         Platform.runLater(() -> textArea2.appendText(content));
     }
 
@@ -45,10 +44,10 @@ public class Controller {
     }
 
     public void onSaveButtonClick() {
-        writeFile();  // Вызываем метод для сохранения файла
+        writeFile();
     }
 
     public String getTextFromTextArea() {
-        return textArea.getText();  // Возвращаем текст из TextArea
+        return textArea.getText();
     }
 }
