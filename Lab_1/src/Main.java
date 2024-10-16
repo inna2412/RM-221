@@ -26,7 +26,7 @@ public class Main {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
 
@@ -34,17 +34,16 @@ public class Main {
     }
 }
 
-class NumberSquare implements Runnable {
+class NumberSquare extends Thread {
     private final int number;
 
     public NumberSquare(int number) {
         this.number = number;
     }
 
-    @Override
+
     public void run() {
-        // Вычисляем квадрат числа
         int square = number * number;
-        System.out.println("Квадрат числа " + number + " равен " + square);
+        System.out.println("Квадрат числа " + number + " равен " + square + "name : " + getName());
     }
 }
