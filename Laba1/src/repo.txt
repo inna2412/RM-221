@@ -1,0 +1,17 @@
+Исправление URL
+Измените URL удалённого репозитория: Используйте следующую команду, чтобы установить правильный URL:
+
+git remote set-url origin https://github.com/inna2412/RM-221.git
+
+Проверьте, что URL обновился: После изменения URL выполните команду:
+
+git remote -v
+
+git remote -v
+
+origin  https://github.com/inna2412/RM-221.git (fetch)
+origin  https://github.com/inna2412/RM-221.git (push)
+
+Теперь выполните push в ветку Serghei_Lazarev: После изменения URL отправьте изменения в нужную ветку:
+
+git push -u origin Serghei_Lazarev
