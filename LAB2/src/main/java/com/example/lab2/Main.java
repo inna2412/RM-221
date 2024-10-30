@@ -42,7 +42,7 @@ public class Main extends Application {
         Thread thb = new Thread(gh, firstTh, "Thb");
         thb.setPriority(3);
         thb.setDaemon(true);
-        Thread thc = new Thread(gh, firstTh, "Tthc");
+        Thread thc = new Thread(gh, firstTh, "Thc");
         thc.setPriority(6);
         thc.setDaemon(true);
         Thread thd = new Thread(gh, firstTh, "Thd");
