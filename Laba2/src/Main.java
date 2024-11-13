@@ -1,10 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        // Создаем группы потоков
         ThreadGroup G1 = new ThreadGroup("G1"), G2 = new ThreadGroup("G2");
         ThreadGroup G3 = new ThreadGroup(G1, "G3");
 
-        // Создаем потоки с переопределенным методом run()
         Thread ThA = new MyThread(G1, "ThA");
         Thread Thf = new MyThread(G3, "Thf");
         Thread Thb = new MyThread(G3, "Thb");
@@ -16,7 +14,17 @@ public class Main {
         Thread Th1 = new MyThread("Th1");
         Thread Th2 = new MyThread("Th2");
 
-        // Задаем приоритеты потокам
+        ThA.setDaemon(true);
+        Thf.setDaemon(true);
+        Thb.setDaemon(true);
+        Thc.setDaemon(true);
+        Thd.setDaemon(true);
+        Th8.setDaemon(true);
+        Th9.setDaemon(true);
+        Th3.setDaemon(true);
+        Th1.setDaemon(true);
+        Th2.setDaemon(true);
+
         Thf.setPriority(3);
         Thb.setPriority(7);
         Thc.setPriority(3);
@@ -28,7 +36,6 @@ public class Main {
         Th1.setPriority(3);
         Th2.setPriority(3);
 
-        // Запускаем потоки
         ThA.start();
         Thf.start();
         Thb.start();
@@ -40,7 +47,6 @@ public class Main {
         Th1.start();
         Th2.start();
 
-        // Логика вывода информации по группам
         String delimiter = "---------------------------------------------------------------------------\n";
         System.out.println("G1 Group: ");
         G1.list();
@@ -54,7 +60,7 @@ public class Main {
     }
 }
 
-// Класс, представляющий поток
+
 class MyThread extends Thread {
     public MyThread(ThreadGroup group, String name) {
         super(group, name);
@@ -66,13 +72,8 @@ class MyThread extends Thread {
 
     @Override
     public void run() {
-        // Логика работы потока
-        try {
-            // Поток работает в течение 1 секунды
-            Thread.sleep(1000);
-            System.out.println(getName() + " завершен.");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while (true){
+
         }
     }
 }
